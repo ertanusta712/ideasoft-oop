@@ -5,6 +5,26 @@ class ShipLoader
 {
     private $pdo;
 
+    private $dbDsn;
+
+    private $dbUser;
+
+    private $dbPassword;
+
+    /**
+     * ShipLoader constructor.
+     * @param $dbDsn
+     * @param $dbUser
+     * @param $dbPassword
+     */
+    public function __construct($dbDsn, $dbUser, $dbPassword)
+    {
+        $this->dbDsn = $dbDsn;
+        $this->dbUser = $dbUser;
+        $this->dbPassword = $dbPassword;
+    }
+
+
     public function getShips()
     {
 
@@ -72,7 +92,7 @@ class ShipLoader
     private function getPdo()
     {
         if ($this->pdo === null) {
-            $pdo = new PDO('mysql:host=localhost;dbname=oop_ogreniyorum', 'OOP', '12345678');
+            $pdo = new PDO($this->dbDsn,$this->dbUser,$this->dbPassword);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo = $pdo;
         }
