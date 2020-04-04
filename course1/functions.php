@@ -1,8 +1,17 @@
 <?php
 
+require_once __DIR__ . 'lib/Ship.php';
+
 function get_ships()
 {
-    return array(
+    $ships = array();
+    $ship = new Ship();
+    $ship->name = 'Jedi Starfighter';
+    $ship->weaponPower = 5;
+    $ship->jediFacotr = 10;
+    $ship->strength = 30;
+    $ships['startfigther'] = $ship;
+    /*return array(
         'starfighter' => array(
             'name' => 'Jedi Starfighter',
             'weapon_power' => 5,
@@ -27,7 +36,7 @@ function get_ships()
             'jedi_factor' => 4,
             'strength' => 50,
         ),
-    );
+    );*/
 }
 
 /**
@@ -88,5 +97,5 @@ function didJediDestroyShipUsingTheForce(array $ship)
 {
     $jediHeroProbability = $ship['jedi_factor'] / 100;
 
-    return mt_rand(1, 100) <= ($jediHeroProbability*100);
+    return mt_rand(1, 100) <= ($jediHeroProbability * 100);
 }
