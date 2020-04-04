@@ -6,13 +6,13 @@
 class Ship
 {
 
-    public $name;
+    private $name;
 
-    public $weaponPower = 0;
+    private $weaponPower = 0;
 
-    public $jediFacotr = 0;
+    private $jediFacotr = 0;
 
-    public $strength = 0;
+    private $strength = 0;
 
     public function sayHello()
     {
@@ -52,4 +52,61 @@ class Ship
     {
         return $givenShip->strength > $this->strength;
     }
+
+    /**
+     * @return int
+     */
+    public function getStrength()
+    {
+        return $this->strength;
+    }
+
+    /**
+     * @param int $strength
+     */
+    public function setStrength($strength)
+    {
+        $this->strength = $strength;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWeaponPower()
+    {
+        return $this->weaponPower;
+    }
+
+    /**
+     * @param int $weaponPower
+     */
+    public function setWeaponPower($weaponPower)
+    {
+        $this->weaponPower = $weaponPower;
+    }
+
+    /**
+     * @return int
+     */
+    public function getJediFacotr()
+    {
+        return $this->jediFacotr;
+    }
+
+    /**
+     * @param int $jediFacotr
+     */
+    public function setJediFacotr($jediFacotr)
+    {
+        $this->jediFacotr = $jediFacotr;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
 }

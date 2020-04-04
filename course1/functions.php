@@ -6,11 +6,26 @@ function get_ships()
 {
     $ships = array();
     $ship = new Ship();
-    $ship->name = 'Jedi Starfighter';
-    $ship->weaponPower = 5;
-    $ship->jediFacotr = 10;
-    $ship->strength = 30;
+    $ship->setName('Jedi Starfighter');
+    $ship->setWeaponPower( 5);
+    $ship->setJediFacotr( 10);
+    $ship->setStrength(30) ;
     $ships['startfigther'] = $ship;
+
+    $ship2=new Ship();
+    $ship2->setJediFacotr(3);
+    $ship2->setName('ne fark eder');
+    $ship2->setStrength(0);
+    $ship2->setWeaponPower(1);
+    $ships['ne fark eder']=$ship2;
+
+    $ship3=new Ship();
+    $ship3->setJediFacotr(3);
+    $ship3->setName('oop güzelmiş');
+    $ship3->setStrength(0);
+    $ship3->setWeaponPower(1);
+    $ships['oop güzelmiş']=$ship3;
+    return $ships;
     /*return array(
         'starfighter' => array(
             'name' => 'Jedi Starfighter',
