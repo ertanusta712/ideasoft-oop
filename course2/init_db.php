@@ -3,9 +3,11 @@
 /*
  * SETTINGS!
  */
-$databaseName = 'oo_battle';
-$databaseUser = 'root';
-$databasePassword = '';
+
+
+$databaseName = 'oop_ogreniyorum';
+$databaseUser = 'OOP';
+$databasePassword = '12345678';
 
 /*
  * CREATE THE DATABASE

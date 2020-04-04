@@ -5,7 +5,17 @@ class ShipLoader
 {
     public function getShips()
     {
+
+        $shipsData=$this->queryForShip();
         $ships = array();
+
+        foreach ($shipsData as $shipsData){
+            $ship=new Ship($shipsData['name']);
+            $ship->setWeaponPower($shipsData['weapon_power']);
+            $ship->setJediFacotr($shipsData['jedi_factor']);
+            $ship->setStrength($shipsData['strength']);
+            $ships[] = $ship;
+        }
         $ship = new Ship('constructer çok iyiymiş');
         $ship->setWeaponPower(5);
         $ship->setJediFacotr(10);
@@ -25,5 +35,14 @@ class ShipLoader
         $ships['oop güzelmiş'] = $ship3;
         return $ships;
 
+    }
+
+    private function queryForShip()
+    {
+        $pdo = new PDO('mysql:host=localhost;dbname=oop_ogreniyorum', 'OOP', '12345678');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $statement = $pdo->prepare('SELECT * FROM ship');
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 }
