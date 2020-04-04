@@ -46,17 +46,30 @@ class Ship
     }
 }
 
+function printShipSummary($someShip)
+{
+    echo 'Ship Name: ' . $someShip->getName();
+    echo '<hr/>';
+    $someShip->sayHello();
+    echo '<hr/>';
+    $someShip->getName();
+    echo '<hr>';
+    echo $someShip->getNameAndSpecs(false);
+    echo '<hr/>';
+    echo $someShip->getNameAndSpecs(true);
+}
+
 $myShip = new Ship();
 $myShip->name = 'ertan';
 $myShip->weaponPower = 10;
-echo $myShip->name;
-echo '<hr>';
-$myShip->sayHello();
-echo '<hr>';
-$myShip->getName();
-echo '<hr>';
-var_dump($myShip->weaponPower);
-echo '<hr>';
-echo $myShip->getNameAndSpecs(false);
-echo '<hr>';
-echo $myShip->getNameAndSpecs(true);
+
+$otherShip = new Ship();
+$otherShip->name = 'usta';
+$otherShip->weaponPower = 5;
+$otherShip->strength = 50;
+
+printShipSummary($myShip);
+echo '<hr/>';
+printShipSummary($otherShip);
+
+
