@@ -6,15 +6,11 @@ class ShipLoader
     public function getShips()
     {
 
-        $shipsData=$this->queryForShip();
+        $shipsData = $this->queryForShip();
         $ships = array();
 
-        foreach ($shipsData as $shipsData){
-            $ship=new Ship($shipsData['name']);
-            $ship->setWeaponPower($shipsData['weapon_power']);
-            $ship->setJediFacotr($shipsData['jedi_factor']);
-            $ship->setStrength($shipsData['strength']);
-            $ships[] = $ship;
+        foreach ($shipsData as $shipsData) {
+            $ships[] = $this->createShipFromData($shipsData);
         }
         $ship = new Ship('constructer çok iyiymiş');
         $ship->setWeaponPower(5);
@@ -35,6 +31,30 @@ class ShipLoader
         $ships['oop güzelmiş'] = $ship3;
         return $ships;
 
+    }
+
+    public function findOneById($id)
+    {
+        $pdo = new PDO('mysql:host=localhost;dbname=oop_ogreniyorum', 'OOP', '12345678');
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $statement = $pdo->prepare('SELECT * FROM ship where id= :id');
+        $statement->execute(array('id' => $id));
+        $shipArray= $statement->fetch(PDO::FETCH_ASSOC);
+        if (!$shipArray) {
+            return null;
+        }
+        return $this->createShipFromData($shipArray);
+    }
+
+    public function createShipFromData($shipsData)
+    {
+        $ship = new Ship($shipsData['name']);
+        $ship->setId($shipsData['id']);
+        $ship->setWeaponPower($shipsData['weapon_power']);
+        $ship->setJediFacotr($shipsData['jedi_factor']);
+        $ship->setStrength($shipsData['strength']);
+
+        return $ship;
     }
 
     private function queryForShip()
