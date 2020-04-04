@@ -5,23 +5,14 @@ class ShipLoader
 {
     private $pdo;
 
-    private $dbDsn;
-
-    private $dbUser;
-
-    private $dbPassword;
 
     /**
      * ShipLoader constructor.
-     * @param $dbDsn
-     * @param $dbUser
-     * @param $dbPassword
+     * @param PDO $pdo
      */
-    public function __construct($dbDsn, $dbUser, $dbPassword)
+    public function __construct(PDO $pdo)
     {
-        $this->dbDsn = $dbDsn;
-        $this->dbUser = $dbUser;
-        $this->dbPassword = $dbPassword;
+        $this->pdo = $pdo;
     }
 
 
@@ -91,12 +82,6 @@ class ShipLoader
      */
     private function getPdo()
     {
-        if ($this->pdo === null) {
-            $pdo = new PDO($this->dbDsn,$this->dbUser,$this->dbPassword);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->pdo = $pdo;
-        }
-
         return $this->pdo;
     }
 }
