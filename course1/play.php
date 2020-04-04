@@ -44,6 +44,11 @@ class Ship
             );
         }
     }
+
+    public function doesGivenShipHaveMoreStrength($givenShip)
+    {
+        return $givenShip->strength > $this->strength;
+    }
 }
 
 function printShipSummary($someShip)
@@ -73,3 +78,9 @@ echo '<hr/>';
 printShipSummary($otherShip);
 
 
+echo '<hr/>';
+if ($myShip->doesGivenShipHaveMoreStrength($otherShip)) {
+    echo $otherShip->name.' has more strength';
+} else {
+    echo $myShip->name.' has more strength';
+}
