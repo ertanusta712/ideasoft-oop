@@ -14,6 +14,14 @@ class Ship
 
     private $strength = 0;
 
+    private $underRepair;
+
+    public function __construct($name)
+    {
+        $this->name=$name;
+        $this->underRepair = mt_rand(1, 100) < 30;
+    }
+
     public function sayHello()
     {
         echo 'hello';
@@ -108,5 +116,15 @@ class Ship
     {
         $this->name = $name;
     }
+
+    /**
+     * @return bool
+     */
+    public function isFunctional()
+    {
+        return !$this->underRepair;
+    }
+
+
 
 }
