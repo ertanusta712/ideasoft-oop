@@ -4,7 +4,7 @@ require __DIR__ . '/bootstrap.php';
 $container = new Container($config);
 $shipLoader = $container->getShipLoader();
 $ships = $shipLoader->getShips();
-
+$ships[]=new BrokenShip('bu videoda ki eğitimler oop için yetersiz');
 $errorMessage = '';
 if (isset($_GET['error'])) {
     switch ($_GET['error']) {
