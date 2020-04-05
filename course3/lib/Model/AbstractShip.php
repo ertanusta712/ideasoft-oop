@@ -1,7 +1,7 @@
 <?php
 
 
-class AbstractShip
+abstract class AbstractShip
 {
     private  $id;
 
@@ -12,6 +12,9 @@ class AbstractShip
 
     private $strength = 0;
 
+    abstract public function getJediFacotr();
+    abstract public function getType();
+    abstract public function isUnserRepair();
 
     public function __construct($name)
     {
@@ -115,13 +118,6 @@ class AbstractShip
         $this->id = $id;
     }
 
-    /**
-     * @return string
-     */
-    public function getType()
-    {
-        return 'Empire';
-    }
 
     protected function getSecretDoorCodeToTheDeathstar()
     {
