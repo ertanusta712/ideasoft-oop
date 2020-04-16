@@ -70,7 +70,8 @@ $battleTypes = BattleManager::getAllBattleTypesWithDescriptions();
         </tr>
         </thead>
         <tbody>
-        <?php foreach ($ships as $ship): ?>
+        <?php
+        foreach ($ships as $ship): ?>
             <tr>
                 <td><?php echo $ship->getName(); ?></td>
                 <td><?php echo $ship->getWeaponPower(); ?></td>

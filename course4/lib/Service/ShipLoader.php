@@ -1,9 +1,10 @@
 <?php
 
 namespace Service;
-use  Model\RebelShip;
+use Model\RebelShip;
 use Model\Ship;
-use Model\AbstractShip;
+use Model\ShipCollection;
+
 class ShipLoader
 {
     private $shipStorage;
@@ -50,7 +51,8 @@ class ShipLoader
         $ship3->setStrength(0);
         $ship3->setWeaponPower(1);
         $ships['oop güzelmiş'] = $ship3;
-        return $ships;
+
+        return new ShipCollection($ships);
 
     }
 
