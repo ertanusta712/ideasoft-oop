@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/bootstrap.php';
-
+use Battle\BattleManager;
 $container = new Container($config);
 $shipLoader = $container->getShipLoader();
 $ships = $shipLoader->getShips();
@@ -21,6 +21,7 @@ if (isset($_GET['error'])) {
             $errorMessage = 'There was a disturbance in the force. Try again.';
     }
 }
+$battleTypes = BattleManager::getAllBattleTypesWithDescriptions();
 ?>
 
 <html>
@@ -118,9 +119,9 @@ if (isset($_GET['error'])) {
                 <div class="text-center">
                     <label for="battle_type">Battle Type</label>
                     <select name="battle_type" id="battle_type" class="form-control drp-dwn-width center-block">
-                        <option value="<?php echo BattleManager::TYPE_NORMAL ?>">Normal</option>
-                        <option value="<?php echo BattleManager::TYPE_NO_JEDI ?>">No Jedi Powers</option>
-                        <option value="<?php echo BattleManager::TYPE_ONLY_JEDI ?>">Only Jedi Powers</option>
+                        <?php foreach ($battleTypes as $battleType => $typeText): ?>
+                            <option value="<?php echo $battleType ?>"><?php echo $typeText; ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
 
