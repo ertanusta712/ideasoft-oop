@@ -1,7 +1,7 @@
 <?php
 
 
-class PdoShipStorage extends AbstractShipStorage
+class PdoShipStorage implements ShipStorageInterface
 {
 
     public function __construct(PDO $pdo)
