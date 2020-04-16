@@ -123,4 +123,5 @@ abstract class AbstractShip
     {
         return 'Ra1nb0ws';
     }
+
 }
