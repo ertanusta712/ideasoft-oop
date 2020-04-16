@@ -128,4 +128,20 @@ abstract class AbstractShip
         return 'Ra1nb0ws';
     }
 
+    public function __toString()
+    {
+        return (string)$this->getName();
+    }
+
+    public function __get($name)
+    {
+        return $this->$name;
+    }
+
+    public function __set($name, $value)
+    {
+        $this->$name=$value;
+        return $this;
+    }
+
 }
