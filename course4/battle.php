@@ -80,7 +80,7 @@ $battleResult = $battleManager->battle($ship1, $ship1Quantity, $ship2, $ship2Qua
             <?php if ($battleResult->isThereWinner()): ?>
                 Both ships destroyed each other in an epic battle to the end.
             <?php else: ?>
-                The <?php echo $battleResult->getWinningShip()->getName(); ?>
+                The <?php echo $battleResult['winningShip']->getName(); ?>
                 <?php if ($battleResult->getUseJediPower()): ?>
                     used its Jedi Powers for a stunning victory!
                 <?php else: ?>
