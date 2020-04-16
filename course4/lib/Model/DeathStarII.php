@@ -1,5 +1,6 @@
 <?php
 
+namespace Model;
 
 class DeathStarII extends DeathStart
 {

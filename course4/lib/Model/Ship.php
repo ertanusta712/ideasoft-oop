@@ -1,8 +1,7 @@
 <?php
 
-/**
- * Class Ship
- */
+namespace Model;
+
 class Ship extends AbstractShip
 {
 

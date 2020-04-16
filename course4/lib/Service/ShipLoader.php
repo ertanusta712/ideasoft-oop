@@ -1,6 +1,9 @@
 <?php
 
-
+namespace Service;
+use  Model\RebelShip;
+use Model\Ship;
+use Model\AbstractShip;
 class ShipLoader
 {
     private $shipStorage;
