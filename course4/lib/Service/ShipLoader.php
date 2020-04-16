@@ -21,8 +21,13 @@ class ShipLoader
 
     public function getShips()
     {
+        try {
+            $shipsData = $this->shipStorage->fetchAllShipsData();
+        } catch (\Exception $e) {
+            // if all else fails, just return an empty array
+            $shipsData= [];
+        }
 
-        $shipsData = $this->shipStorage->fetchAllShipsData();
         $ships = array();
 
         foreach ($shipsData as $shipsData) {
