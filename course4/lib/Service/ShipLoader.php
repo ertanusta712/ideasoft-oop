@@ -1,6 +1,7 @@
 <?php
 
 namespace Service;
+use Model\BountyHunterShip;
 use Model\RebelShip;
 use Model\Ship;
 use Model\ShipCollection;
@@ -34,6 +35,7 @@ class ShipLoader
         foreach ($shipsData as $shipsData) {
             $ships[] = $this->createShipFromData($shipsData);
         }
+        $ship[]=new BountyHunterShip('Gözlerimden Bir damla yaş');
         $ship = new Ship('constructer çok iyiymiş');
         $ship->setWeaponPower(5);
         $ship->setJediFacotr(10);
